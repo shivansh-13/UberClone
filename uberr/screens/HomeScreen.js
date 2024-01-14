@@ -41,8 +41,8 @@ const HomeScreen = () => {
             }
           }}
           onPress={async (data, details = null) => {
-            console.log(data);
-            console.log(details);
+            // console.log(data);
+            // console.log(details);
             const location = await getPlaceDetails(details.place_id);
             if (location) {
               dispatch(setOrigin({
@@ -61,7 +61,7 @@ const HomeScreen = () => {
           minLength={2}
           nearbyPlacesAPI='GooglePlacesSearch'
           returnKeyType={'search'}
-          debounce={400}
+          debounce={200}
           enablePoweredByContainer={false}
         />
 
