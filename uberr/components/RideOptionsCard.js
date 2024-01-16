@@ -5,16 +5,14 @@ import tw from 'tailwind-react-native-classnames'
 import { Icon } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native'
 import { FlatList } from 'react-native-gesture-handler'
-import { selectTravelTimeInformation } from '../slices/navSlice'
 import { useSelector } from 'react-redux'
-import { selectOrigin } from '../slices/navSlice'
-import { useDispatch } from 'react-redux'
+import { selectTravelTimeInformation } from '../slices/navSlice'
 
 
 const data = [
   {
     id: 'Uber-X-123',
-    title: 'UberX',
+    title: 'Uber Go',
     multiplier: 1,
     image: 'https://links.papareact.com/3pn',
   },
@@ -26,20 +24,27 @@ const data = [
   },
   {
     id: 'Uber-LUX-789',
-    title: 'Uber LUX',
+    title: 'Uber Premier',
     multiplier: 1.75,
     image: 'https://links.papareact.com/7pf',
   },
 ]
 const SURGE_CHARGE_RATE = 1.5
+
+
 const RideOptionsCard = () => {
+
+
   const navigation = useNavigation();
   const travelTimeInformation = useSelector(selectTravelTimeInformation);
   const [selected, setSelected] = React.useState(null);
 // Inside RideOptionsCard component
+
 console.log("RideOptionsCard rendered");
 console.log(travelTimeInformation)
-console.log(selectTravelTimeInformation)
+console.log(useSelector(selectTravelTimeInformation))
+
+
   return (
     <SafeAreaView style={tw`bg-white flex-grow`}>
       <View >

@@ -8,6 +8,7 @@ import { selectDestination } from '../slices/navSlice'
 import MapViewDirections from 'react-native-maps-directions'
 import { GOOGLE_MAPS_APIKEY } from "@env";
 import { useDispatch } from 'react-redux'
+import { setTravelTimeInformation } from '../slices/navSlice'
 
 const Map = () => {
     const { height } = Dimensions.get('window')
@@ -26,7 +27,7 @@ const Map = () => {
     useEffect(()=>{
       if(!origin||!destination){return}
       const getTravelTime = async()=>{
-        fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${origin.description}&destinations=${destination.description}&key=${GOOGLE_MAPS_APIKEY}`)
+        fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=${origin.description}&destinations=${destination.description}&key=${GOOGLE_MAPS_APIKEY}`)
         .then((res)=>res.json())
         .then((data)=>{
           console.log(data.rows[0].elements[0])
