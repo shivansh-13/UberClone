@@ -18,7 +18,7 @@ const NavigateCard = () => {
 
     return (
         <SafeAreaView style={tw`bg-white flex-1`}>
-            <Text style={tw`text-lg py-5 text-center text-xl`}>Hellow Shivansh !</Text>
+            <Text style={tw`text-lg py-4 text-center text-xl`}>Hello Shivansh !</Text>
             <View style={tw`border-t border-gray-200 flex-shrink`}>
                 <View>
                     <GooglePlacesAutocomplete
@@ -45,23 +45,24 @@ const NavigateCard = () => {
                                 language: 'en',
                             }
                         }
-                        nearbyPlacesAPI = " GooglePlacesSearch"
+                        nearbyPlacesAPI=" GooglePlacesSearch"
                         debounce={200} />
                 </View>
                 <NavFavourites />
 
             </View>
             <View style={tw`flex-row justify-evenly border-t border-gray-100 mt-auto py-2 bg-white `}>
-                <TouchableOpacity style={tw`flex-row bg-black flex w-24 px-4 py-3 rounded-full`}
+                <TouchableOpacity style={tw` justify-between flex-row bg-black flex w-24 px-4 py-3 rounded-full`}
                     onPress={() => navigation.navigate("RideOptionsCard")}
                 >
                     <Icon name='car' type='font-awesome' color='white' size={16} />
                     <Text style={tw`text-center text-white`}>Rides</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={tw`flex-row  flex w-24 px-4 py-3 rounded-full`}>
-                    <Icon name='car' type='font-awesome' color='black' size={16} />
-                    <Text style={tw`text-center text-black`}>Rides</Text>
+                <TouchableOpacity style={tw`flex-row justify-between items-center w-24 px-4 py-3 rounded-full`}>
+                    <Icon name='fastfood' type='material' color='black' size={16} />
+                    <Text style={tw`text-center text-black`}>Eats</Text>
                 </TouchableOpacity>
+
             </View>
             <View></View>
         </SafeAreaView>

@@ -38,21 +38,16 @@ const RideOptionsCard = () => {
   const navigation = useNavigation();
   const travelTimeInformation = useSelector(selectTravelTimeInformation);
   const [selected, setSelected] = React.useState(null);
-// Inside RideOptionsCard component
-
-console.log("RideOptionsCard rendered");
-console.log(travelTimeInformation)
-console.log(useSelector(selectTravelTimeInformation))
-
-
   return (
     <SafeAreaView style={tw`bg-white flex-grow`}>
-      <View >
-      <TouchableOpacity style={tw`absolute top-1 left-3 p-3 rounded-full`} onPress={() => navigation.navigate("NavigateCard")}>
+      <View style={tw`flex-row items-center justify-between p-3 bg-white`} >
+        <TouchableOpacity onPress={() => navigation.navigate("NavigateCard")}>
           <Icon name='chevron-left' type='font-awesome' />
         </TouchableOpacity>
-        <Text style={tw`text-center py-3 text-xl`}>Select a ride - {travelTimeInformation?.distance?.text}
+        <Text style={tw`text-center text-xl`}>
+          Select a ride - {travelTimeInformation?.distance?.text}
         </Text>
+        <View style={{ width: 30 }} /> 
       </View>
       <FlatList
         data={data}
@@ -72,7 +67,7 @@ console.log(useSelector(selectTravelTimeInformation))
             />
             <View style={tw`-ml-6`}>
               <Text style={tw`text-xl font-semibold`}>{title}</Text>
-              <Text>{travelTimeInformation?.duration?.text} Travel Time</Text>
+              <Text style={tw`text-xs`}>{travelTimeInformation?.duration?.text} Travel Time</Text>
             </View>
             <Text style={tw`text-xl`}>
               {new Intl.NumberFormat('en-gb', {

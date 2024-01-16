@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
-import React from 'react';
+import { StyleSheet, Text, View, SafeAreaView, Image, Touchable } from 'react-native';
+import React,{useRef} from 'react';
 import tw from 'tailwind-react-native-classnames';
 import NavOptions from '../components/NavOptions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
@@ -23,6 +23,7 @@ const HomeScreen = () => {
     }
   };
 
+
   return (
     <SafeAreaView style={[tw`bg-white h-full`]}>
       <View style={[tw`p-5`]}>
@@ -41,8 +42,6 @@ const HomeScreen = () => {
             }
           }}
           onPress={async (data, details = null) => {
-            // console.log(data);
-            // console.log(details);
             const location = await getPlaceDetails(details.place_id);
             if (location) {
               dispatch(setOrigin({
